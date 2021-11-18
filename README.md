@@ -16,6 +16,7 @@ About: This program was developed to be used within the current medical operatin
 6. Meet the Team
 
 ## Dependencies and Coding Language
+
 ---
 
 The Patient Portal program was coded in Fall of 2021 and was coded in Java using JavaFX and Java FXML. Java is a versitile language and supports graphical user interfaces and computations between backend code and the front end user view.
@@ -33,25 +34,28 @@ All of these elements work together and interact with one another to develop a c
 To run this program, the user must have JavaFX and FXML capabilities. Knowledge and understanding those modules and respective methods will explain how the program functions.
 
 ## Database Design
----
-This is the first implementation of the overall program. MySQL server was used with this program to house all of the information of the actors as well as communication between them and the pharmacy. The MySQL database was created on a local server to house the information and incorporates information hiding and data/method abstractions to hold data points.  
 
-This server as previously mentioned is held locally. Therefore, the database cannot be accessed outside of what was made for this program. To use the demonstration database, one can copy the `.sql` files that are included in the main PatientPortal folder containing all the code.  
+---
+
+This is the first implementation of the overall program. MySQL server was used with this program to house all of the information of the actors as well as communication between them and the pharmacy. The MySQL database was created on a local server to house the information and incorporates information hiding and data/method abstractions to hold data points.
+
+This server as previously mentioned is held locally. Therefore, the database cannot be accessed outside of what was made for this program. To use the demonstration database, one can copy the `.sql` files that are included in the main PatientPortal folder containing all the code.
 
 The general structure of the database schema consists of five tables, each with their own primary keys and some reuse of foreign keys. The tables are as follows...
+
 1. doctorlogins
 2. nurselogins
 3. patientlogins
 4. patientvitals
 5. messages
 
-* These are not always located in this order, however, this is the order in which they are going to be explained.
+- These are not always located in this order, however, this is the order in which they are going to be explained.
 
 ![Patient Tables List View](./ReadmeImages/PatientTables.png)
 
 ### doctorlogins Table
 
-This is the table that holds all of the doctor information. Doctors are not allowed to create their own accounts and their information is manually added to the database by administration. The fields that are stored here contain the information about the doctors as well as their login information.  
+This is the table that holds all of the doctor information. Doctors are not allowed to create their own accounts and their information is manually added to the database by administration. The fields that are stored here contain the information about the doctors as well as their login information.
 
 ![Doctor Login Table](./ReadmeImages/DoctorTable.png)
 
@@ -70,12 +74,11 @@ The username and password fields correspond to what will be used in the program.
 The main difference between the patient login table compared to the other tables is the patient can create accounts. This means that the table will be continuously updated during runtime to compensate for any new account creations. This is the first dynamic table used in the program and contains a plethora of information about such patients. This table contains a multitude of fields including...
 
 | patientID | username | password | firstname | lastname | phonenumber | medical history | immunization history | insurance number |
-| :------------- | :------------- | :------------- | :------------- | :------------- | :------------- | :------------- | :------------- |
+| :-------- | :------- | :------- | :-------- | :------- | :---------- | :-------------- | :------------------- | ---------------- |
 
 Not only can all these new fields be created for each new patient, but they can also be updated per the nurse and doctor who can change this patients medical history and immunization history.
 
 ![Patient Login Table](./ReadmeImages/PatientLoginTables.png)
-
 
 ### patientvitals Table
 
@@ -95,6 +98,16 @@ Messages uses a foreign key to denote which patient, doctor, nurse sent the mess
 
 This concludes the general breakdown and structure of the database setup and table structures.
 
-
 ## Structure of the Program
+
 ---
+
+The structure of the program will be described in a layered sense of architecture. Each layer is going to move through that part of the architecture and describe which actors and which methods are to be invoked on each layer. The interactions between the user and the layer of that program determine what happens next. These interactions are best expressed in a sequence diagram, however, they will be explained here in words.
+
+The first opening screen of the program presents the user with three options. The three options are to login to the application as a patient, nurse or doctor.
+
+### Logging in as a Doctor
+
+Logging in as a doctor is quite simple and works like most other login applications. There is no ability for a doctor to request their username and password login information. If they forgot it, they must speak with their administration themselves.
+
+To login, the doctor must correctly identify their username and password. If it is wrong, they will be notified and cannot login.
