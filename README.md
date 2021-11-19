@@ -111,3 +111,15 @@ The first opening screen of the program presents the user with three options. Th
 Logging in as a doctor is quite simple and works like most other login applications. There is no ability for a doctor to request their username and password login information. If they forgot it, they must speak with their administration themselves.
 
 To login, the doctor must correctly identify their username and password. If it is wrong, they will be notified and cannot login.
+
+Once the user provides a correct password, they will be allowed into the main doctor account page. From here the doctor can access patient vital information as well as any messages that were sent to the doctor from the patient.
+
+The range of actions of the doctor, other than viewing information, is to submit some messages of their own either to the patient they are viewing or to the pharmacy describing which medicine this patient requires.
+
+All of this information is updated to the MySQL database and is placed in the various fields. The title and body of the messages are input as well as the current patient and whether or not the information/message will be going to the pharmacy or the patient themselves.
+
+Lastly, and this is available for each actor within the system, they are given the accesibility to the help page in the program. This page will redirect the actor to this github repository where they can read this and learn how to use the program at any time.
+
+### Logging in as a Nurse
+
+Logging in as a Nurse... TDW
